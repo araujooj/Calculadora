@@ -1,0 +1,32 @@
+@font-face {
+    font-family:Poppins;
+    src: url(https://fonts.googleapis.com/css?family=Poppins);
+}
+.text{
+    text-align: center;
+    h1{
+       font-family: Poppins, sans-serif;
+       font-size: 38px;
+       margin-top: 10%;
+    }
+}
+.calculator{
+    height: 320px;
+    width: 235px;
+    border-radius: 5px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    grid-template-rows: 1fr 48px 48px 48px 48px 48px;
+}
+body{
+    color: #fff;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    background-image: linear-gradient(45deg, rgb(83,105,118), rgb(41,46,73));
+    height:100vh;
+}
+.triple{
+    grid-column: span 3;
+}
