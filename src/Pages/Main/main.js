@@ -23,6 +23,10 @@ class Main extends Component {
     this.setOperation = this.setOperation.bind(this)
     this.addDigit = this.addDigit.bind(this)
     this.forceUpdateHandler.bind(this);
+    this.state = {
+      aula : 'Arquivo criado como prova.js ',
+      contador: 7,
+  }
   }
 
   clearMemory() {
@@ -56,7 +60,19 @@ class Main extends Component {
   forceUpdateHandler(){
     this.forceUpdate();
   };
-
+  contadorIncrease(delta) {
+    this.setState({contador: this.state.contador + delta})
+ }
+ contadorVerifier(){
+     var contador = this.state.contador
+     for(contador = 0; contador<= 100; contador++){
+         if(contador%2 === 0){
+          return <h2>é par</h2>
+         } else{
+          return <h3>é impar</h3>
+         }
+     }
+ }
   addDigit(n) {
     if(n === '.' && this.state.displayValue.includes('.')) {
       return
@@ -109,14 +125,14 @@ class Main extends Component {
       <Button label = '=' click = {this.setOperation} operation/>
       </div>
       <br></br>
-      <Router>
-      <Link to = 'prova' onClick={this.forceUpdate}>
-      <Fab variant="extended" aria-label="Delete">
-        <NavigationIcon />
-          Prova
-      </Fab>
-      </Link>
-      </Router>
+      <h1>Contador</h1>
+                <h2>Exercício 1:<br></br>  {this.state.aula}</h2>
+                <br></br>
+                <h2>Exercício 2, 3 <br></br> Clique para mostrar os multiplos de 7 =   {this.state.contador}</h2>
+                <Fab variant="extended" onClick = {() => this.contadorIncrease(7)} >
+                +
+                </Fab>
+                <h2>Exercício 4 <br></br> {this.contadorVerifier()}</h2>
     </center>
 
       </div>
